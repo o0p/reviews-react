@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import people from './data';
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 
+// const test424 = '';
 const Review = () => {
   const [index, setIndex] = useState(0);
   const { name, job, image, text } = people[index];
@@ -30,6 +31,13 @@ const Review = () => {
     });
   };
 
+  const randomPerson = () => {
+    setIndex((index) => {
+      let randomNum = Math.floor(Math.random() * people.length);
+      console.log(randomNum);
+      return checkNumber(randomNum);
+    });
+  };
   return (
     <article className="review">
       <div className="img-container">
@@ -49,7 +57,9 @@ const Review = () => {
           <FaChevronRight />
         </button>
       </div>
-      <button className="random-btn">surpsuse me</button>
+      <button className="random-btn" onClick={randomPerson}>
+        surpsuse me
+      </button>
     </article>
   );
 };
